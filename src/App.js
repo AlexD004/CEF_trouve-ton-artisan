@@ -1,19 +1,26 @@
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+import Home from './pages/Home';
+import CategoriesAndSearch from './pages/CategoriesAndSearch';
+import Worker from './pages/Worker';
+import Standard from './pages/Standard';
+import Page404 from './pages/Page404';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
-
-import Button from 'react-bootstrap/Button';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      <FontAwesomeIcon icon={faHouse} />
-      </header>
-      <body>
-      <Button variant="flat" size="xxl" class="bg-primary">
-        flat button
-      </Button>
-      </body>
+      <FontAwesomeIcon icon={faHouse}/>
+      <Header/>
+      <Home/>
+      <CategoriesAndSearch/>
+      <Worker/>
+      <Standard/>
+      <Page404/>
+      <Footer/>
     </div>
   );
 }
