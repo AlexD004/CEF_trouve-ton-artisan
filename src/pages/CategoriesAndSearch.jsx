@@ -1,10 +1,13 @@
+import { useParams } from "react-router-dom";
+
 function CategoriesAndSearch() {
     // STATES
-  
+    const { categoryName } = useParams();
+
     // RENDER
     return (
       <div className="CategoriesAndSearch">
-          <main>Page de résultats de recherches et catégories</main>
+          <main>{ categoryName }</main>
       </div>
     );
   }
