@@ -9,13 +9,9 @@ import Worker from './pages/Worker';
 import Legal from './pages/Legal'
 import Page404 from './pages/Page404';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse } from '@fortawesome/free-solid-svg-icons'
-
 function App() {
   return (
     <div className="App">
-      <FontAwesomeIcon icon={faHouse}/>
       <Header/>
 
       <Routes>
