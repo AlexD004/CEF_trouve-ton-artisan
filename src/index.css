@@ -1,3 +1,12 @@
+:root{
+  --primary: #0074c7;
+  --seconday:#00497c;
+  --success:#82b864;
+  --danger:#cd2c2e;
+  --light:#f1f8fc;
+  --dark:#384050;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +19,44 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+/* HEADER */
+
+/* Logo and buttons display on mobile by default (close) */
+#mobileNav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+/* Buttons display on mobile to toggle search and nav bars */
+#buttonNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#buttonNav button {
+  width: 48px;
+  height: 48px;
+}
+#buttonNav button svg{
+  height: auto;
+}
+#buttonNav button:hover{
+  color:var(--seconday) !important;
+}
+#buttonNav button.navbar-toggler:focus{
+  box-shadow: none !important;
+}
+#searchButton{
+  display: block;
+}
+
+
+@media screen and (min-width: 992px)
+{
+  #searchButton{
+    display: none;
+  }
 }
