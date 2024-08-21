@@ -18,24 +18,31 @@ function Footer(props) {
           <Container fluid className='p-4'>
             <Row>
               <Col className='col-lg-4 col-12 mb-5 mb-lg-0 text-center text-lg-start'>
-              <img
-                  src="/images/logo-blanc.png"
-                  width="250"
-                  height="66"
-                  className="d-inline-block align-top"
-                  alt="Logo Trouve ton artisan"
-                />
+                <a href="/">
+                  <img
+                    src="/images/logo-blanc.png"
+                    width="250"
+                    height="66"
+                    className="d-inline-block align-top"
+                    alt="Logo Trouve ton artisan"
+                  />
+                </a>
               </Col>
               <Col className='col-lg-8 col-12'>
                 <Row>
                   <Col className={'col-12 col-sm-6 ps-5 py-4 p-lg-0 border border-start-0 border-top-0'+conditionalBorder}>
                     <TitleH2 colorDivider='white' content='Lyon' />
-                    <p>
-                      101 cours Charlemagne <br/>
-                      CS 20033 <br/>
-                      69269 LYON CEDEX 02 <br/>
-                      France
-                    </p>
+                    <a
+                      href="https://www.google.fr/maps/place/101+Cr+Charlemagne,+69002+Lyon/@45.7401725,4.8172598,17.5z/data=!4m6!3m5!1s0x47f4ebceb7217f5b:0x97dd96361cc92602!8m2!3d45.7403373!4d4.8190973!16s%2Fg%2F11c213z3kc?entry=ttu"
+                      target='_blank'
+                      rel="noreferrer"
+                      className='lightContrast text-decoration-none'
+                    >
+                        101 cours Charlemagne <br/>
+                        CS 20033 <br/>
+                        69269 LYON CEDEX 02 <br/>
+                        France
+                    </a><br/>
                     <a href="tel:+33426734000" className='lightContrast text-white text-decoration-none'>
                       <FontAwesomeIcon
                         icon={faPhone}
