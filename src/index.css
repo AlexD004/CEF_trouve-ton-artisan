@@ -9,21 +9,16 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Graphik', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
+  font-size:16px;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button:hover{
+  background: var(--seconday) !important;
 }
-
-
 /* HEADER */
-
 /* Logo and buttons display on mobile by default (close) */
 #mobileNav {
   width: 100%;
@@ -43,8 +38,10 @@ code {
 #buttonNav button svg{
   height: auto;
 }
-#buttonNav button:hover{
-  color:var(--seconday) !important;
+#buttonNav button:hover,
+#buttonNav button:hover svg{
+  color:var(--dark) !important;
+  background: none !important;
 }
 #buttonNav button.navbar-toggler:focus{
   box-shadow: none !important;
@@ -52,11 +49,23 @@ code {
 #searchButton{
   display: block;
 }
+/* Nav links */
+.nav-link{
+  color: var(--dark) !important;
+  font-weight: 400;
+}
+.nav-link:hover{
+  color: var(--primary) !important;
+  font-weight: 700;
+}
 
 
 @media screen and (min-width: 992px)
 {
   #searchButton{
     display: none;
+  }
+  #toggleNav{
+    width: 400px !important;
   }
 }
