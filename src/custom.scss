@@ -45,4 +45,6 @@ $h4-font-size: $font-size-default * 1 !default;
 $h5-font-size: $font-size-default * 0.85 !default;
 $h6-font-size: $font-size-default !default;
 
+$card-border-width: 0;
+
 @import '~bootstrap/scss/bootstrap';

@@ -1,0 +1,30 @@
+[
+	{
+		"id": "1",
+		"title": "Choisir la catégorie d’artisanat dans le menu",
+		"content": "Commencez par sélectionner la catégorie d'artisanat correspondant à votre besoin parmi les options disponibles sur la page d'accueil.",
+		"imageURL": "/images/process/choix-categorie.png",
+		"alt":"Un personnage s'oriente dans une direction"
+	},
+	{
+		"id": "2",
+		"title": "Choisir un artisan",
+		"content": "Parcourez la liste des artisans disponibles dans cette catégorie et sélectionnez celui qui vous convient le mieux.",
+		"imageURL": "/images/process/choix-artisan.png",
+		"alt":"Une main clic sur un bouton"
+	},
+	{
+		"id": "3",
+		"title": "Le contacter via le formulaire de contact",
+		"content": "Une fois l'artisan choisi, remplissez le formulaire de contact avec vos informations et détails du projet.",
+		"imageURL": "/images/process/contact.png",
+		"alt":"Un personnage s'appuie sur un téléphone géant"
+	},
+	{
+		"id": "4",
+		"title": "Une réponse sera apportée sous 48h",
+		"content": "Après l'envoi de votre demande, l'artisan vous répondra sous 48 heures avec un devis personnalisé.",
+		"imageURL": "/images/process/reponse.png",
+		"alt":"Un personnage regarde un sablier"
+	}
+]
