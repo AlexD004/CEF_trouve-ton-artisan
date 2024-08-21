@@ -20,22 +20,12 @@ function Header(props) {
 
     // Control searchbar display
     const [open, setOpen] = useState(false);
-
     useEffect(() => {
-      // if desktop : searchbar open
-      if (window.innerWidth > 991) {
+      if (props.display==='desktop') {
         setOpen(true);
       }else{
         setOpen(false);
       }
-      window.addEventListener('resize', () => {
-        if(props.display==='desktop'){
-          setOpen(true);
-        }else{
-          setOpen(false);
-        }
-          
-      });
     },[props.display]);
     
     // Change burger navIcon if clicked

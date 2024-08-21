@@ -57,6 +57,11 @@ function Footer(props) {
                 </Row>
               </Col>
             </Row>
+            <Row>
+              <Col className='text-center mt-3 mt-sm-5 pt-4 border border-bottom-0 border-start-0 border-end-0'>
+              © Designed by Alexandre Dupré for CEF
+              </Col>
+            </Row>
           </Container>
       </div>
     );

@@ -16,6 +16,15 @@ function App() {
   const [display, setDisplay] = useState('mobile');
 
   useEffect(() => {
+
+    if (window.innerWidth > 991) {
+      setDisplay('desktop');
+    }else if(window.innerWidth < 576){
+      setDisplay('mobile');
+    }else{
+      setDisplay('tablet');
+    }
+
     window.addEventListener('resize', () => {
       if (window.innerWidth > 991) {
         setDisplay('desktop');
