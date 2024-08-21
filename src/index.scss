@@ -55,6 +55,15 @@ a.lightContrast:hover,
   color: var(--white) !important;
   text-decoration: underline !important;
 }
+a:focus,
+a:focus-visible,
+.nav-link:focus,
+.nav-link:focus-visible,
+button:focus,
+button:focus-visible{
+  outline: 3px solid var(--dark) !important ;
+  box-shadow: none !important;
+}
 
 /* HEADER */
 /* Logo and buttons display on mobile by default (close) */
