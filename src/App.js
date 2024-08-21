@@ -39,15 +39,15 @@ function App() {
   return (
     <div className="App">
       <Header display={display} />
-
-      <Routes>
-				<Route path="/" element={ <Home/> }></Route>
-				<Route path="/categorie/:categoryName" element={ <CategoriesAndSearch/> }></Route>
-				<Route path="/artisan/:workerName" element={ <Worker/> }></Route>
-				<Route path="/legal/:pageName" element={ <Legal/> }></Route>
-				<Route path="*" element={ <Page404/> }></Route>
-			</Routes>
-
+      <main>
+        <Routes>
+          <Route path="/" element={ <Home/> }></Route>
+          <Route path="/categorie/:categoryName" element={ <CategoriesAndSearch/> }></Route>
+          <Route path="/artisan/:workerName" element={ <Worker/> }></Route>
+          <Route path="/legal/:pageName" element={ <Legal/> }></Route>
+          <Route path="*" element={ <Page404/> }></Route>
+        </Routes>
+      </main>
       <Footer display={display} />
     </div>
   );

@@ -18,6 +18,12 @@ body {
 h1, h2 {
   font-weight: 900 !important;
 }
+h1{
+  padding: 32px 0 40px;
+}
+h2{
+  padding: 32px 0;
+}
 h2::before{
   content:'';
   display: block;
@@ -95,6 +101,12 @@ button:focus-visible{
 }
 #searchButton{
   display: block;
+}
+
+/* STEPS CARDS */
+.stepNumber {
+  font-size: 3em !important;
+  font-weight: 900 !important;
 }
 
 @media screen and (min-width: 992px)

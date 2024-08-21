@@ -14,7 +14,7 @@ function Footer(props) {
 
     // RENDER
     return (
-      <div className="footer bg-primary text-white fw-bold fs-6">
+      <footer className="footer bg-primary text-white fw-bold fs-6">
           <Container fluid className='p-4'>
             <Row>
               <Col className='col-lg-4 col-12 mb-5 mb-lg-0 text-center text-lg-start'>
@@ -42,7 +42,7 @@ function Footer(props) {
                         CS 20033 <br/>
                         69269 LYON CEDEX 02 <br/>
                         France
-                    </a><br/>
+                    </a><br/  >
                     <a href="tel:+33426734000" className='lightContrast text-white text-decoration-none'>
                       <FontAwesomeIcon
                         icon={faPhone}
@@ -70,7 +70,7 @@ function Footer(props) {
               </Col>
             </Row>
           </Container>
-      </div>
+      </footer>
     );
   }
   

@@ -4,7 +4,7 @@ function Worker() {
     // RENDER
     return (
       <div className="Worker">
-          <main>Page de détail d'un artisan</main>
+          Page de détail d'un artisan
       </div>
     );
   }

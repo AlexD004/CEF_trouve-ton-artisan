@@ -41,7 +41,7 @@ function Header(props) {
   
     // RENDER
     return (
-      <div className="header">
+      <header className="header">
         <Navbar expand="lg" className="bg-white shadow-sm" sticky="top">
           <Container>
 
@@ -129,7 +129,7 @@ function Header(props) {
             </div>
           </Container>
         </Navbar>
-      </div>
+      </header>
     );
   }
   

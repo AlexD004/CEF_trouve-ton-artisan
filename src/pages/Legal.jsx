@@ -4,7 +4,7 @@ function Legal() {
     // RENDER
     return (
       <div className="Legal">
-          <main>Page Legal</main>
+          Page Legal
       </div>
     );
   }

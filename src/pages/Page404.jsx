@@ -4,7 +4,7 @@ function Page404() {
     // RENDER
     return (
       <div className="404">
-          <main>Page 404</main>
+          Page 404
       </div>
     );
   }

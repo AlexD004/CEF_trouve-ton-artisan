@@ -7,7 +7,7 @@ function CategoriesAndSearch() {
     // RENDER
     return (
       <div className="CategoriesAndSearch">
-          <main>{ categoryName }</main>
+          { categoryName }
       </div>
     );
   }
