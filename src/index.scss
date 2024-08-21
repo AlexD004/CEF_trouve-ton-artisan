@@ -1,6 +1,6 @@
 :root{
   --primary: #0074c7;
-  --seconday:#00497c;
+  --secondary:#00497c;
   --success:#82b864;
   --danger:#cd2c2e;
   --light:#f1f8fc;
@@ -15,9 +15,47 @@ body {
   font-weight: 300;
   font-size:16px;
 }
+h1, h2 {
+  font-weight: 900 !important;
+}
+h2::before{
+  content:'';
+  display: block;
+  width: 30px;
+  height: 6px;
+  margin-bottom: 18px;
+}
+h2.white::before { background-color: #fff;}
+h2.primary::before { background-color: var(--primary);}
+h2.secondary::before { background-color: var(--secondary);}
+h2.success::before { background-color: var(--success);}
+h2.danger::before { background-color: var(--danger);}
+h2.light::before { background-color: var(--light);}
+h2.dark::before { background-color: var(--dark);}
 button:hover{
   background: var(--seconday) !important;
 }
+a,
+.nav-link{
+  color: var(--dark) !important;
+  font-weight: 400;
+}
+a:hover,
+.nav-link:hover{
+  color: var(--seconday) !important;
+  font-weight: 700;
+}
+a.lightContrast,
+.nav-link.nav-link.lightContrast:hover{
+  color: var(--white) !important;
+  font-weight: 700;
+}
+a.lightContrast:hover,
+.nav-link.lightContrast:hover{
+  color: var(--white) !important;
+  text-decoration: underline !important;
+}
+
 /* HEADER */
 /* Logo and buttons display on mobile by default (close) */
 #mobileNav {
@@ -49,16 +87,6 @@ button:hover{
 #searchButton{
   display: block;
 }
-/* Nav links */
-.nav-link{
-  color: var(--dark) !important;
-  font-weight: 400;
-}
-.nav-link:hover{
-  color: var(--primary) !important;
-  font-weight: 700;
-}
-
 
 @media screen and (min-width: 992px)
 {
