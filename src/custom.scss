@@ -34,6 +34,15 @@ $body-color: #384050;
 $link-color: #384050;
 $link-hover-color: #0074c7;
 
+
 $font-family-sans-serif: "Graphik", "Arial", sans-serif;
+$font-size-default: 16px;
+
+$h1-font-size: $font-size-default * 2 !default;
+$h2-font-size: $font-size-default * 1.5 !default;
+$h3-font-size: $font-size-default * 1.25 !default;
+$h4-font-size: $font-size-default * 1 !default;
+$h5-font-size: $font-size-default * 0.85 !default;
+$h6-font-size: $font-size-default !default;
 
 @import '~bootstrap/scss/bootstrap';
