@@ -15,7 +15,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
-function Header() {
+function Header(props) {
     // STATES
 
     // Control searchbar display
@@ -25,17 +25,19 @@ function Header() {
       // if desktop : searchbar open
       if (window.innerWidth > 991) {
         setOpen(true);
+      }else{
+        setOpen(false);
       }
-      // if resize to desktop : searchbar open
       window.addEventListener('resize', () => {
-        if (window.innerWidth > 991) {
+        if(props.display==='desktop'){
           setOpen(true);
         }else{
           setOpen(false);
         }
+          
       });
-    }, []);
-
+    },[props.display]);
+    
     // Change burger navIcon if clicked
     const [navIcon, setNavIcon] = useState(faBars);
 

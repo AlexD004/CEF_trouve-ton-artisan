@@ -1,3 +1,5 @@
+
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Header from './components/Header';
@@ -10,9 +12,24 @@ import Legal from './pages/Legal'
 import Page404 from './pages/Page404';
 
 function App() {
+  // STATE
+  const [display, setDisplay] = useState('mobile');
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 991) {
+        setDisplay('desktop');
+      }else if(window.innerWidth < 576) {
+        setDisplay('mobile');
+      }else{
+        setDisplay('tablet');
+      }
+    });
+  }, [display]);
+
   return (
     <div className="App">
-      <Header/>
+      <Header display={display} />
 
       <Routes>
 				<Route path="/" element={ <Home/> }></Route>
@@ -22,7 +39,7 @@ function App() {
 				<Route path="*" element={ <Page404/> }></Route>
 			</Routes>
 
-      <Footer/>
+      <Footer display={display} />
     </div>
   );
 }

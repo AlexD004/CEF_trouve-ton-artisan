@@ -8,26 +8,27 @@ import TitleH2 from './TitleH2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
 
-function Footer() {
+function Footer(props) {
     // STATES
-  
+    const conditionalBorder = props.display === 'mobile' ? " border-end-0" : " border-bottom-0";
+
     // RENDER
     return (
       <div className="footer bg-primary text-white fw-bold fs-6">
           <Container fluid className='p-4'>
             <Row>
-              <Col className='col-lg-4 col-12'>
+              <Col className='col-lg-4 col-12 mb-5 mb-lg-0 text-center text-lg-start'>
               <img
                   src="/images/logo-blanc.png"
-                  width="200"
-                  height="53"
+                  width="250"
+                  height="66"
                   className="d-inline-block align-top"
                   alt="Logo Trouve ton artisan"
                 />
               </Col>
               <Col className='col-lg-8 col-12'>
                 <Row>
-                  <Col className='col-12 col-md-6 border border-white border-top-0 border-bottom-0 border-start-0'>
+                  <Col className={'col-12 col-sm-6 ps-5 py-4 p-lg-0 border border-start-0 border-top-0'+conditionalBorder}>
                     <TitleH2 colorDivider='white' content='Lyon' />
                     <p>
                       101 cours Charlemagne <br/>
@@ -45,12 +46,12 @@ function Footer() {
                       </span>
                     </a>
                   </Col>
-                  <Col className='col-12 col-md-6'>
+                  <Col className='col-12 col-sm-6 ps-5 py-4 p-lg-0'>
                     <Nav className="flex-column text-white">
-                      <Nav.Link href="/legal/mentions-legales" className='lightContrast'>Mentions légales</Nav.Link>
-                      <Nav.Link href="/legal/donnees-personnelles" className='lightContrast'>Données personnelles</Nav.Link>
-                      <Nav.Link href="/legal/accessibilite" className='lightContrast'>Accessibilité</Nav.Link>
-                      <Nav.Link href="/legal/gestion-cookies" className='lightContrast'>Gestion des cookies</Nav.Link>
+                      <Nav.Link href="/legal/mentions-legales" className='lightContrast px-0 px-lg-4'>Mentions légales</Nav.Link>
+                      <Nav.Link href="/legal/donnees-personnelles" className='lightContrast px-0 px-lg-4'>Données personnelles</Nav.Link>
+                      <Nav.Link href="/legal/accessibilite" className='lightContrast px-0 px-lg-4'>Accessibilité</Nav.Link>
+                      <Nav.Link href="/legal/gestion-cookies" className='lightContrast px-0 px-lg-4'>Gestion des cookies</Nav.Link>
                     </Nav>
                   </Col>
                 </Row>
