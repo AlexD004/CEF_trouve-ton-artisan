@@ -15,7 +15,7 @@ function Footer(props) {
     // RENDER
     return (
       <footer className="footer bg-primary text-white fw-bold fs-6">
-          <Container fluid className='p-4'>
+          <Container className='p-4'>
             <Row>
               <Col className='col-lg-4 col-12 mb-5 mb-lg-0 text-center text-lg-start'>
                 <a href="/">

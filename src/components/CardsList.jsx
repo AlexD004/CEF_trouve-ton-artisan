@@ -7,6 +7,7 @@ export default function CardsList({
   gutterBetweenCards,
   col,
   cardStyle,
+  displayId,
   buttonStyle,
   buttonText,
 }) {
@@ -16,9 +17,8 @@ export default function CardsList({
       <div className={"row " + gutterBetweenCards}>
         {dataCards.map((dataCard) => {
           return (
-            <div className={"card-group d-flex justify-content-center " + col}>
+            <div className={"card-group d-flex justify-content-center " + col}  key={dataCard.id}>
               <Card
-                key={dataCard.id}
                 className={
                   cardStyle +
                   " " +
@@ -39,7 +39,9 @@ export default function CardsList({
                     </p>
                   )}
                   <Card.Title className="d-flex align-items-start">
-                    <span className="stepNumber text-primary lh-1 me-2">{dataCard.id}</span>
+                    {displayId && (
+                        <span className="stepNumber text-primary lh-1 me-2">{dataCard.id}</span>
+                    )}
                     <h3 className="text-secondary fw-bold lh-1">{dataCard.title}</h3>
                   </Card.Title>
                   <Card.Text className="">{dataCard.content}</Card.Text>
