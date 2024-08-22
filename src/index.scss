@@ -125,6 +125,9 @@ button:hover{
   transition: .3s ease-in-out;
   transform: scale(110%);
 }
+.worker .card ul{
+  display: flex !important;
+}
 
 
 @media screen and (min-width: 992px)
