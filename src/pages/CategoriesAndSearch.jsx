@@ -6,13 +6,26 @@ import datasWorkers from '../datas/datas-workers.json';
 
 function CategoriesAndSearch() {
     // STATES
-    const { searchMethod, categoryName } = useParams();
-    const method = searchMethod.charAt(0).toUpperCase() + searchMethod.slice(1);
-    const title = categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
+    const { searchMethod, stringFilter } = useParams();
+    const title = stringFilter.charAt(0).toUpperCase() + stringFilter.slice(1);
 
-    let result = datasWorkers.filter((dataWorker) => {
-      return dataWorker.category.normalize('NFD').replace(/[\u0300-\u036f]|[^\w ]/g, "") === title;
-    });
+    let result = [];
+    if(searchMethod === "categorie"){
+        result = datasWorkers.filter((dataWorker) => {
+        return dataWorker.category.normalize('NFD').replace(/[\u0300-\u036f]|[^\w ]/g, "") === title;
+      });
+    }else if(searchMethod === "recherche"){
+      result = datasWorkers.filter((dataWorker) => {
+        return (
+          dataWorker.name.normalize('NFD').replace(/[\u0300-\u036f]|[^\w ]/g, "").toLowerCase().includes(title.toLocaleLowerCase())
+          ||
+          dataWorker.location.normalize('NFD').replace(/[\u0300-\u036f]|[^\w ]/g, "").toLowerCase().includes(title.toLocaleLowerCase())
+          ||
+          dataWorker.specialty.normalize('NFD').replace(/[\u0300-\u036f]|[^\w ]/g, "").toLowerCase().includes(title.toLocaleLowerCase())
+        );
+      });
+    }
+
 
     // RENDER
     return (
@@ -20,12 +33,13 @@ function CategoriesAndSearch() {
         <h1>Les artisans de votre région</h1>
         <TitleH2
           colorDivider="primary"
-          content={ method + " : " + title }
+          content={ title }
           showResults={true}
           refResults={ result }
         />
         <CardsWorker
-          dataCards={ result } 
+          dataCards={ datasWorkers } 
+          dataFiltered={ result }
           textAlign= "text-left" 
           gutterBetweenCards= "g-2" 
           col= "col-sm-12 col-md-6 col-lg-4" 

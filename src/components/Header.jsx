@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -37,6 +38,45 @@ function Header(props) {
       }else{
         setNavIcon(faBars);
       }
+    }
+
+    // Clean value submited in searchbar
+    const escapeHtml = (unsafe) => {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    // On SUBMIT SearchBar
+    const [isError, setIsError] = useState(false);
+    const navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const stringSearch = event.target.search.value;
+
+      const showError = (err) => {
+        setIsError(true);
+        console.log(err);
+      }
+
+      try {
+        if(!stringSearch){
+          throw new Error("The field is required!");
+        }
+
+        setIsError(false); // If the form was in error, now it is good !
+        const cleanSearch = escapeHtml(stringSearch); // clean the string
+        const url = "/recherche/"+cleanSearch; // Build url
+        navigate(url); // And go!
+
+      } catch (err) {
+        showError(err);
+      }
+
     }
   
     // RENDER
@@ -83,33 +123,18 @@ function Header(props) {
             <div id="toggleNav" className='w-100'>
               {/* Searchbar */}
               <Collapse in={open}>
-                <Form id="searchar">
-                  <Row className='g-2 w-100'>
+                <Form id="searchar" onSubmit={handleSubmit}>
+                  <Row className='g-2 w-100 d-flex align-items-end'>
                     <Col xs="auto" className='col-8'>
-                      <Form.Control type="text" placeholder="Ville, Nom, Spécialité..."
-                        className="
-                          mt-md-0
-                          mb-md-0
-                          mt-sm-3
-                          mb-sm-3
-                          rounded-0
-                          border-primary
-                          border-top-0
-                          border-start-0
-                        "
+                      {isError && (<span className='text-danger'>Veuillez saisir votre recherche</span>)}
+                      <Form.Control type="text" name="search" placeholder="Ville, Nom, Spécialité..."
+                        className={"my-0 rounded-0 border-primary border-top-0 border-start-0 " + (isError && "invalid")}
                       />
                     </Col>
                     <Col xs="auto" className='col-4'>
                       <Button
                         type="submit"
-                        className="
-                          mt-md-0
-                          mb-md-0
-                          mt-sm-3
-                          mb-sm-3
-                          bg-primary
-                          w-100
-                        "
+                        className="my-0 bg-primary w-100"
                       >
                         Rechercher
                       </Button>

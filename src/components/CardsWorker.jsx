@@ -11,6 +11,7 @@ function CardsWorker(props) {
     // STATES
     let {
       dataCards,
+      dataFiltered,
       textAlign,
       gutterBetweenCards,
       col,
@@ -29,8 +30,11 @@ function CardsWorker(props) {
     }
     // Set the list to loop ( TOP Workers or ALL )
     // And sort by note
-    if( top === true ){
+    if( top ){
       dataCards = topWorkers;
+    }
+    if( dataFiltered ){
+      dataCards = dataFiltered;
     }
 
     
