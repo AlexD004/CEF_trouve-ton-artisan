@@ -31,6 +31,7 @@ function Home() {
             col= "col-sm-12 col-md-6 col-lg-4" 
             cardStyle= "bg-light rounded-4 py-4 px-2"
             buttonStyle= "rounded-5 w-100 fw-bold"
+            top={true}
           />
         </section>
 
