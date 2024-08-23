@@ -4,10 +4,10 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 
 function CardsWorker(props) {
-    // STATES
+    // STATES 
     const { rate } = props;
 
-    const rateValues = rate.split('.'); // I split the note to have two parts : "full" point and "partial" point
+    let rateValues = rate.split('.');; // I split the note to have two parts : "full" point and "partial" point
     const fullStars = parseInt(rateValues[0], 10); // I stock full points
     const halfStar = parseInt(rateValues[1], 10); // I stock partial points
 
