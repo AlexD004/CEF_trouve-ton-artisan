@@ -42,7 +42,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={ <Home/> }></Route>
-          <Route path="/categorie/:categoryName" element={ <CategoriesAndSearch/> }></Route>
+          <Route path="/:searchMethod/:stringFilter" element={ <CategoriesAndSearch/> }></Route>
           <Route path="/artisan/:id/:workerName" element={ <Worker/> }></Route>
           <Route path="/legal/:pageName" element={ <Legal/> }></Route>
           <Route path="*" element={ <Page404/> }></Route>

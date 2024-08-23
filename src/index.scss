@@ -105,6 +105,10 @@ button:hover{
 #searchButton{
   display: block;
 }
+/* Invalid form */
+input.invalid {
+  border:2px solid var(--danger) !important;
+}
 
 /* STEPS CARDS */
 .stepNumber {
@@ -129,6 +133,11 @@ button:hover{
   display: flex !important;
 }
 
+/* CATEGORIES & SEARCH */
+.searchResults{
+  font-size: .7em;
+  font-weight: 300;
+}
 
 @media screen and (min-width: 992px)
 {
