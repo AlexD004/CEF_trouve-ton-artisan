@@ -55,10 +55,10 @@ function Footer(props) {
                   </Col>
                   <Col className='col-12 col-sm-6 ps-5 py-4 p-lg-0'>
                     <Nav className="flex-column text-white">
-                      <Nav.Link href="/legal/mentions-legales" className='lightContrast px-0 px-lg-4'>Mentions légales</Nav.Link>
-                      <Nav.Link href="/legal/donnees-personnelles" className='lightContrast px-0 px-lg-4'>Données personnelles</Nav.Link>
-                      <Nav.Link href="/legal/accessibilite" className='lightContrast px-0 px-lg-4'>Accessibilité</Nav.Link>
-                      <Nav.Link href="/legal/gestion-cookies" className='lightContrast px-0 px-lg-4'>Gestion des cookies</Nav.Link>
+                      <Nav.Link href="/mentions-legales" className='lightContrast px-0 px-lg-4'>Mentions légales</Nav.Link>
+                      <Nav.Link href="/donnees-personnelles" className='lightContrast px-0 px-lg-4'>Données personnelles</Nav.Link>
+                      <Nav.Link href="/accessibilite" className='lightContrast px-0 px-lg-4'>Accessibilité</Nav.Link>
+                      <Nav.Link href="/gestion-cookies" className='lightContrast px-0 px-lg-4'>Gestion des cookies</Nav.Link>
                     </Nav>
                   </Col>
                 </Row>
