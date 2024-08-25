@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
-function Worker() {
+function Worker({topWorkers}) {
     // STATES
     const { id } = useParams();
     let worker = datasWorkers.filter((dataWorker) => {
@@ -24,38 +24,64 @@ function Worker() {
       imageURL = "/images/avatars/default.png";
       alt = "Avatar par défaut, illustration d'une ville."
     }
-
+    // Set the good medal
+    let place = 1;
+    let altMedal = "Icone d'une médaile";
+    if( worker.top === true ){
+      place = topWorkers.indexOf(worker)+1;
+      if (place === 1){ altMedal="Médaille d'or, le meilleur artisan du mois" }
+      else if (place === 2){ altMedal="Médaille d'argent, le deuxième artisan du mois" }
+      else if (place === 3){ altMedal="Médaille de bronze, le troisième artisan du mois" }
+    }
+        
     // RENDER
     return (
-      <div className="worker container">
+      <div className="workerProfil container py-5">
 
-        <section id="fiche" className="d-flex pt-4 justify-content-between flex-column flex-sm-row">
-          <div id="profil" className="text-center">
-            <img
-              src={imageURL}
-              alt={alt} 
-              className="rounded-4 m-auto w-auto"
-              width="150"
-              height="150"
-            />
+        <section id="fiche" className="d-flex justify-content-between flex-column flex-sm-row">
+          <div id="profil" className="text-center col-7">
+            <div className="position-relative d-inline-block">
+              <img
+                src={imageURL}
+                alt={alt} 
+                className="rounded-4 m-auto w-auto"
+                width="150"
+                height="150"
+              />
+              {!!worker.top && (
+                <img
+                  className="medal position-absolute bottom-0 end-0"
+                  src={"/images/medal"+place+".png"}
+                  alt={altMedal}
+                  width="40"
+                  height="40"
+                />
+              )}
+            </div>
             <h1 className="pb-1">{worker.name}</h1>
             <div className="d-flex justify-content-center justify-content-sm-start">
               <StarRate rate={worker.note} />
               <strong className="text-secondary ms-2">{worker.note}/5</strong>
             </div>
           </div>
-          <div id="details">
+          <div id="details" className="col-5">
             <div id="infos" className="d-flex justify-content-between align-items-center border border-dark border-2 border-end-0 border-start-0 py-3 fs-4">
               <strong className="text-dark speciality">{worker.specialty}</strong>
               <span><FontAwesomeIcon icon={faLocationDot} aria-hidden="true" className="me-2 text-primary" /> {worker.location}</span>
             </div>
             <div id="links">
-              <Button className="rounded-5 w-100 fw-bold mt-3">
-                Contacter l'artisan <FontAwesomeIcon icon={faArrowUpRightFromSquare} aria-hidden="true" className="ms-2" />
-              </Button>
-              <Button className="secondaryButton rounded-5 w-100 fw-bold bg-white border border-primary text-primary mt-3">
-                Voir le site internet <FontAwesomeIcon icon={faArrowUpRightFromSquare} aria-hidden="true" className="ms-2" />
-              </Button>
+              <a href="#contactForm" >
+                <Button className="rounded-5 w-100 fw-bold mt-3">
+                  Contacter l'artisan <FontAwesomeIcon icon={faArrowUpRightFromSquare} aria-hidden="true" className="ms-2" />
+                </Button>
+              </a>
+              {!!worker.website && (
+                <a href={worker.website} target="_blank" rel="noreferrer">
+                  <Button className="secondaryButton rounded-5 w-100 fw-bold bg-white border border-primary text-primary mt-3">
+                    Voir le site internet <FontAwesomeIcon icon={faArrowUpRightFromSquare} aria-hidden="true" className="ms-2" />
+                  </Button>
+                </a>
+              )}
             </div>
           </div>
         </section>

@@ -145,11 +145,15 @@ input.invalid {
 }
 
 /* PROFIL PAGE */
-.worker{
+.workerProfil{
   max-width: 960px !important;
 }
 .speciality{
   font-weight: 900;
+}
+.workerProfil .medal{
+  bottom: -10px !important;
+  right: -20px !important;
 }
 @media screen and (min-width: 576px)
 {
