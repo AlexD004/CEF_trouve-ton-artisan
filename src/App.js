@@ -61,7 +61,10 @@ function App() {
           <Route path="/categorie/:searchTerm" element={ <CategoriesAndSearch topWorkers={topWorkers} mode="categorie"/> }></Route>
           <Route path="/recherche/:searchTerm" element={ <CategoriesAndSearch topWorkers={topWorkers} mode="recherche"/> }></Route>
           <Route path="/artisan/:id/:workerName" element={ <Worker topWorkers={topWorkers} /> }></Route>
-          <Route path="/:pageName" element={ <Legal/> }></Route>
+          <Route path="/mentions-legales" element={ <Legal/> }></Route>
+          <Route path="/donnees-personnelles" element={ <Legal/> }></Route>
+          <Route path="/accessibilite" element={ <Legal/> }></Route>
+          <Route path="/cookies" element={ <Legal/> }></Route>
           <Route path="*" element={ <Page404/> }></Route>
         </Routes>
       </main>
