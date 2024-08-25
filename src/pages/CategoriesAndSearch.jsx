@@ -37,16 +37,22 @@ function CategoriesAndSearch() {
           showResults={true}
           refResults={ result }
         />
-        <CardsWorker
-          dataCards={ datasWorkers } 
-          dataFiltered={ result }
-          textAlign= "text-left" 
-          gutterBetweenCards= "g-2" 
-          col= "col-sm-12 col-md-6 col-lg-4" 
-          cardStyle= "bg-light rounded-4 py-4 px-2"
-          buttonStyle= "rounded-5 w-100 fw-bold"
-          top={false}
-        />
+        { result.length === 0 ?
+          <div className="text-center fw-bold fs-3 py-4 border border-1 rounded-2 shadow-sm">
+            Désolé, nous ne trouvons aucun artisan correspondant à cette recherche...
+          </div>
+          :
+          <CardsWorker
+            dataCards={ datasWorkers } 
+            dataFiltered={ result }
+            textAlign= "text-left" 
+            gutterBetweenCards= "g-2" 
+            col= "col-sm-12 col-md-6 col-lg-4" 
+            cardStyle= "bg-light rounded-4 py-4 px-2"
+            buttonStyle= "rounded-5 w-100 fw-bold"
+            top={false}
+          />
+        }
       </div>
     );
   }
