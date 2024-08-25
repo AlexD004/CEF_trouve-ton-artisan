@@ -5,7 +5,7 @@ import CardsWorker from "../components/CardsWorker";
 import datasSteps from '../datas/datas-steps.json';
 import datasWorkers from '../datas/datas-workers.json';
 
-function Home() {
+function Home({topWorkers}) {
   // STATES
   // RENDER
   return (
@@ -25,13 +25,15 @@ function Home() {
         <section id="bestsWorkers" className="pb-4">
           <TitleH2 colorDivider="success" content="Les artisans du mois" />
           <CardsWorker
-            dataCards={ datasWorkers } 
+            dataCards={ datasWorkers } // Required : get workers infos
+            topWorkers={ topWorkers } // Required : get top workers to display medals
+            top={true} // Required : display all workers or only top3
+            dataFiltered='' // Option : filtered list of workers
             textAlign= "text-left" 
             gutterBetweenCards= "g-2" 
             col= "col-sm-12 col-md-6 col-lg-4" 
             cardStyle= "bg-light rounded-4 py-4 px-2"
             buttonStyle= "rounded-5 w-100 fw-bold"
-            top={true}
           />
         </section>
 

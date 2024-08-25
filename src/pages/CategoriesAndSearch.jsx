@@ -4,12 +4,13 @@ import TitleH2 from "../components/TitleH2";
 
 import datasWorkers from '../datas/datas-workers.json';
 
-function CategoriesAndSearch({mode}) {
+function CategoriesAndSearch({
+  topWorkers,
+  mode
+}) {
     // STATES
     const { searchTerm } = useParams();
     const title = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
-
-    console.log(mode);
 
     let result = [];
     if(mode === "categorie"){
@@ -45,14 +46,15 @@ function CategoriesAndSearch({mode}) {
           </div>
           :
           <CardsWorker
-            dataCards={ datasWorkers } 
-            dataFiltered={ result }
+            dataCards={ datasWorkers } // Required : get workers infos
+            topWorkers={ topWorkers } // Required : get top workers to display medals
+            top={false} // Required : display all workers or only top3
+            dataFiltered={ result } // Option : filtered list of workers
             textAlign= "text-left" 
             gutterBetweenCards= "g-2" 
             col= "col-sm-12 col-md-6 col-lg-4" 
             cardStyle= "bg-light rounded-4 py-4 px-2"
             buttonStyle= "rounded-5 w-100 fw-bold"
-            top={false}
           />
         }
       </div>

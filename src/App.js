@@ -11,12 +11,18 @@ import Worker from './pages/Worker';
 import Legal from './pages/Legal'
 import Page404 from './pages/Page404';
 
+import datasWorkers from './datas/datas-workers.json';
+
 function App() {
   // STATE
+
+  // Define display'type'
+  // 'Mobile' by default
   const [display, setDisplay] = useState('mobile');
 
   useEffect(() => {
 
+    // Define when charged
     if (window.innerWidth > 991) {
       setDisplay('desktop');
     }else if(window.innerWidth < 576){
@@ -24,7 +30,7 @@ function App() {
     }else{
       setDisplay('tablet');
     }
-
+    // Defin when resized
     window.addEventListener('resize', () => {
       if (window.innerWidth > 991) {
         setDisplay('desktop');
@@ -36,15 +42,25 @@ function App() {
     });
   }, [display]);
 
+  // Filter TOP Workers
+  // And sort by note
+  let topWorkers = [];
+  for (let i=0; i < datasWorkers.length; i++) {
+    if (datasWorkers[i].top === true){
+      topWorkers = [...topWorkers, datasWorkers[i]];
+      topWorkers.sort((a,b) => (a.note > b.note ) ? -1 : 1 );
+    }
+  }
+
   return (
     <div className="App">
       <Header display={display} />
       <main>
         <Routes>
-          <Route path="/" element={ <Home/> }></Route>
-          <Route path="/categorie/:searchTerm" element={ <CategoriesAndSearch mode="categorie"/> }></Route>
-          <Route path="/recherche/:searchTerm" element={ <CategoriesAndSearch mode="recherche"/> }></Route>
-          <Route path="/artisan/:id/:workerName" element={ <Worker/> }></Route>
+          <Route path="/" element={ <Home topWorkers={topWorkers} /> }></Route>
+          <Route path="/categorie/:searchTerm" element={ <CategoriesAndSearch topWorkers={topWorkers} mode="categorie"/> }></Route>
+          <Route path="/recherche/:searchTerm" element={ <CategoriesAndSearch topWorkers={topWorkers} mode="recherche"/> }></Route>
+          <Route path="/artisan/:id/:workerName" element={ <Worker topWorkers={topWorkers} /> }></Route>
           <Route path="/:pageName" element={ <Legal/> }></Route>
           <Route path="*" element={ <Page404/> }></Route>
         </Routes>

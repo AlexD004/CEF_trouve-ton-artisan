@@ -11,33 +11,23 @@ function CardsWorker(props) {
     // STATES
     let {
       dataCards,
+      topWorkers,
+      top,
       dataFiltered,
       textAlign,
       gutterBetweenCards,
       col,
       cardStyle,
-      buttonStyle,
-      top
+      buttonStyle
     } = props;
 
-    // Filter TOP Workers
-    let topWorkers = [];
-    for (let i=0; i < dataCards.length; i++) {
-      if (dataCards[i].top === true){
-        topWorkers = [...topWorkers, dataCards[i]];
-        topWorkers.sort((a,b) => (a.note > b.note ) ? -1 : 1 );
-      }
-    }
     // Set the list to loop ( TOP Workers or ALL )
-    // And sort by note
     if( top ){
       dataCards = topWorkers;
     }
     if( dataFiltered ){
       dataCards = dataFiltered;
     }
-
-    
   
     // RENDER
     return (
