@@ -8,13 +8,15 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import CategoriesAndSearch from './pages/CategoriesAndSearch';
 import Worker from './pages/Worker';
-import Legal from './pages/Legal'
+import LegalNotices from "./pages/LegalNotices";
+import Confidentiality from "./pages/Confidentiality";
+import Accessibility from "./pages/Accessibility";
+import CookiesManagement from "./pages/CookiesManagement";
 import Page404 from './pages/Page404';
 
 import datasWorkers from './datas/datas-workers.json';
 
 function App() {
-  // STATE
 
   // Define display'type'
   // 'Mobile' by default
@@ -61,10 +63,10 @@ function App() {
           <Route path="/categorie/:searchTerm" element={ <CategoriesAndSearch topWorkers={topWorkers} mode="categorie"/> }></Route>
           <Route path="/recherche/:searchTerm" element={ <CategoriesAndSearch topWorkers={topWorkers} mode="recherche"/> }></Route>
           <Route path="/artisan/:id/:workerName" element={ <Worker topWorkers={topWorkers} /> }></Route>
-          <Route path="/mentions-legales" element={ <Legal/> }></Route>
-          <Route path="/donnees-personnelles" element={ <Legal/> }></Route>
-          <Route path="/accessibilite" element={ <Legal/> }></Route>
-          <Route path="/cookies" element={ <Legal/> }></Route>
+          <Route path="/mentions-legales" element={ <LegalNotices /> }></Route>
+          <Route path="/donnees-personnelles" element={ <Confidentiality /> }></Route>
+          <Route path="/accessibilite" element={ <Accessibility /> }></Route>
+          <Route path="/gestion-cookies" element={ <CookiesManagement /> }></Route>
           <Route path="*" element={ <Page404/> }></Route>
         </Routes>
       </main>
