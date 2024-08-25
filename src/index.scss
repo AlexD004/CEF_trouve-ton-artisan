@@ -155,10 +155,19 @@ input.invalid {
   bottom: -10px !important;
   right: -20px !important;
 }
+.formMessage{
+  min-height: 200px !important;
+}
+.workerProfil form button{
+  width: 100%;
+}
 @media screen and (min-width: 576px)
 {
   #profil{
     text-align: left !important;
+  }
+  .workerProfil form button{
+    max-width: 300px;
   }
 }
 

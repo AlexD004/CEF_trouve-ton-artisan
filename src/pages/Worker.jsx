@@ -2,6 +2,9 @@ import { useParams } from "react-router-dom";
 import datasWorkers from '../datas/datas-workers.json';
 
 import Button from "react-bootstrap/Button";
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import StarRate from "../components/StarRate";
 import TitleH2 from "../components/TitleH2";
 
@@ -92,8 +95,50 @@ function Worker({topWorkers}) {
         </section>
 
         <section id="contactForm">
-        <TitleH2 colorDivider="success" content={"Contacter " + worker.name} />
-          [FORM]
+          <TitleH2 colorDivider="success" content={"Contacter " + worker.name} />
+          <Form>
+            <Row>
+              <Col sm="12" md="6" className="mt-4">
+                <Form.Group controlId="formName">
+                  <Form.Label>
+                    Nom <span className="text-danger">*</span>
+                  </Form.Label>
+                  <Form.Control
+                    className="bg-light border border-primary rounded-5"
+                    type="text"
+                    placeholder="Entrez votre nom"
+                  />
+                </Form.Group>
+              </Col>
+              <Col sm="12" md="6" className="mt-4">
+                <Form.Group controlId="formSubject">
+                  <Form.Label>
+                    Objet <span className="text-danger">*</span>
+                  </Form.Label>
+                  <Form.Control
+                    className="bg-light border border-primary rounded-5"
+                    type="text"
+                    placeholder="Entrez le sujet de votre demande"
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+            <Form.Group controlId="formMessage" className="mt-4">
+              <Form.Label>
+                Message <span className="text-danger">*</span>
+              </Form.Label>
+              <Form.Control
+                className="bg-light border border-primary rounded-4 formMessage"
+                as="textarea"
+                placeholder="Entrez votre message"
+              />
+            </Form.Group>
+            <div className="d-flex justify-content-center justify-content-sm-end">
+              <Button variant="primary" type="submit" className="mt-4 rounded-5 px-5">
+                Demander un devis
+              </Button>
+            </div>
+          </Form>
         </section>
           
       </div>
