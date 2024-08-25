@@ -42,9 +42,10 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={ <Home/> }></Route>
-          <Route path="/:searchMethod/:stringFilter" element={ <CategoriesAndSearch/> }></Route>
+          <Route path="/categorie/:searchTerm" element={ <CategoriesAndSearch mode="categorie"/> }></Route>
+          <Route path="/recherche/:searchTerm" element={ <CategoriesAndSearch mode="recherche"/> }></Route>
           <Route path="/artisan/:id/:workerName" element={ <Worker/> }></Route>
-          <Route path="/legal/:pageName" element={ <Legal/> }></Route>
+          <Route path="/:pageName" element={ <Legal/> }></Route>
           <Route path="*" element={ <Page404/> }></Route>
         </Routes>
       </main>

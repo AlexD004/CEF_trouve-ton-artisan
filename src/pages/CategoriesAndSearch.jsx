@@ -4,17 +4,19 @@ import TitleH2 from "../components/TitleH2";
 
 import datasWorkers from '../datas/datas-workers.json';
 
-function CategoriesAndSearch() {
+function CategoriesAndSearch({mode}) {
     // STATES
-    const { searchMethod, stringFilter } = useParams();
-    const title = stringFilter.charAt(0).toUpperCase() + stringFilter.slice(1);
+    const { searchTerm } = useParams();
+    const title = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
+
+    console.log(mode);
 
     let result = [];
-    if(searchMethod === "categorie"){
+    if(mode === "categorie"){
         result = datasWorkers.filter((dataWorker) => {
         return dataWorker.category.normalize('NFD').replace(/[\u0300-\u036f]|[^\w ]/g, "") === title;
       });
-    }else if(searchMethod === "recherche"){
+    }else if(mode === "recherche"){
       result = datasWorkers.filter((dataWorker) => {
         return (
           dataWorker.name.normalize('NFD').replace(/[\u0300-\u036f]|[^\w ]/g, "").toLowerCase().includes(title.toLocaleLowerCase())
@@ -37,16 +39,22 @@ function CategoriesAndSearch() {
           showResults={true}
           refResults={ result }
         />
-        <CardsWorker
-          dataCards={ datasWorkers } 
-          dataFiltered={ result }
-          textAlign= "text-left" 
-          gutterBetweenCards= "g-2" 
-          col= "col-sm-12 col-md-6 col-lg-4" 
-          cardStyle= "bg-light rounded-4 py-4 px-2"
-          buttonStyle= "rounded-5 w-100 fw-bold"
-          top={false}
-        />
+        { result.length === 0 ?
+          <div className="text-center fw-bold fs-3 py-4 border border-1 rounded-2 shadow-sm">
+            Désolé, nous ne trouvons aucun artisan correspondant à cette recherche...
+          </div>
+          :
+          <CardsWorker
+            dataCards={ datasWorkers } 
+            dataFiltered={ result }
+            textAlign= "text-left" 
+            gutterBetweenCards= "g-2" 
+            col= "col-sm-12 col-md-6 col-lg-4" 
+            cardStyle= "bg-light rounded-4 py-4 px-2"
+            buttonStyle= "rounded-5 w-100 fw-bold"
+            top={false}
+          />
+        }
       </div>
     );
   }
