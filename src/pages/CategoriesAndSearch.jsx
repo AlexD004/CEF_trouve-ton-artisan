@@ -9,8 +9,6 @@ function CategoriesAndSearch({mode}) {
     const { searchTerm } = useParams();
     const title = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
 
-    console.log(mode);
-
     let result = [];
     if(mode === "categorie"){
         result = datasWorkers.filter((dataWorker) => {

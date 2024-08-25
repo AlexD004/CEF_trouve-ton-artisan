@@ -44,6 +44,11 @@ h2.dark::before { background-color: var(--dark);}
 button:hover{
   background: var(--seconday) !important;
 }
+button.secondaryButton:hover{
+  background: var(--light) !important;
+  border-color: var(--secondary) !important;
+  color: var(--secondary) !important;
+}
 a,
 .nav-link{
   color: var(--dark) !important;
@@ -137,6 +142,20 @@ input.invalid {
 .searchResults{
   font-size: .7em;
   font-weight: 300;
+}
+
+/* PROFIL PAGE */
+.worker{
+  max-width: 960px !important;
+}
+.speciality{
+  font-weight: 900;
+}
+@media screen and (min-width: 576px)
+{
+  #profil{
+    text-align: left !important;
+  }
 }
 
 @media screen and (min-width: 992px)

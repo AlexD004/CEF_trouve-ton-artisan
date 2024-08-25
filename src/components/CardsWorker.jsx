@@ -21,6 +21,7 @@ function CardsWorker(props) {
     } = props;
 
     // Filter TOP Workers
+    // And sort by note
     let topWorkers = [];
     for (let i=0; i < dataCards.length; i++) {
       if (dataCards[i].top === true){
@@ -29,7 +30,6 @@ function CardsWorker(props) {
       }
     }
     // Set the list to loop ( TOP Workers or ALL )
-    // And sort by note
     if( top ){
       dataCards = topWorkers;
     }
@@ -94,7 +94,7 @@ function CardsWorker(props) {
                       <strong className="text-secondary ms-2">{dataCard.note}/5</strong>
                     </div>
                     <Card.Text className="d-flex justify-content-between align-items-center border border-dark border-2 border-end-0 border-start-0 py-2 fs-4">
-                      <strong className="text-dark">{dataCard.specialty}</strong>
+                      <strong className="text-dark speciality">{dataCard.specialty}</strong>
                       <span><FontAwesomeIcon icon={faLocationDot} aria-hidden="true" className="me-2 text-primary" /> {dataCard.location}</span>
                     </Card.Text>
                     <Button className={buttonStyle}>
