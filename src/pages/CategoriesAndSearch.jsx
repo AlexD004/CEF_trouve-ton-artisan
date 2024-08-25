@@ -4,17 +4,19 @@ import TitleH2 from "../components/TitleH2";
 
 import datasWorkers from '../datas/datas-workers.json';
 
-function CategoriesAndSearch() {
+function CategoriesAndSearch({mode}) {
     // STATES
-    const { searchMethod, stringFilter } = useParams();
-    const title = stringFilter.charAt(0).toUpperCase() + stringFilter.slice(1);
+    const { searchTerm } = useParams();
+    const title = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
+
+    console.log(mode);
 
     let result = [];
-    if(searchMethod === "categorie"){
+    if(mode === "categorie"){
         result = datasWorkers.filter((dataWorker) => {
         return dataWorker.category.normalize('NFD').replace(/[\u0300-\u036f]|[^\w ]/g, "") === title;
       });
-    }else if(searchMethod === "recherche"){
+    }else if(mode === "recherche"){
       result = datasWorkers.filter((dataWorker) => {
         return (
           dataWorker.name.normalize('NFD').replace(/[\u0300-\u036f]|[^\w ]/g, "").toLowerCase().includes(title.toLocaleLowerCase())
