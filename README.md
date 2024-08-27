@@ -1,7 +1,8 @@
-# CV with React JS
+# Trouve ton artisan
 
-There is a CV, designed and developped for my formation to become a fullstack developper.
+There is a project, designed and developped for my formation to become a fullstack developper.
 It use React.JS to structure and edit the content.
+It permit to display and filter workers, based on a json file.
 
 ## :magic_wand: Features
 
