@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
 
 function ContactForm({ workerName, workerEmail }) {
 /* SET UP SOME VARIABLES */
@@ -77,37 +76,6 @@ function ContactForm({ workerName, workerEmail }) {
     // Call when all is ok after submit
     const [isSend, setIsSend] = useState(false);
     const sendMail = () => {
-
-      // EmailJS IDs
-      const serviceId = "service_mio0al7";
-      const templateId = "template_42gsd4e";
-      const publicKey = "gtH3eGjpnco2ghUE7";
-
-      // Dynamic params for template
-      const templateParams = {
-        client_name: formInfos.name,
-        client_subject: formInfos.subject,
-        client_message: formInfos.message,
-        worker_name: 'Nom Artisan',
-        worker_email: "MAIL"
-        //worker_name: workerName,
-        //worker_email: workerEmail
-      }
-
-      // Send the email using EmailJS
-      emailjs.send(serviceId, templateId, templateParams, publicKey)
-        .then(() => {
-          // reset form
-          setFormInfos({
-            name: "",
-            subject: "",
-            message: ""
-          });
-
-        })
-        .catch((error) => {
-          console.error('Error sending email:', error);
-        });
       setIsSend(true);
       setTimeout( fadeOut , 6000 ); // Wait 6s and fade out the success message
     }

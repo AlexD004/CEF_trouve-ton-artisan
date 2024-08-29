@@ -40,7 +40,7 @@ function App() {
         setDisplay('mobile');
       }else{
         setDisplay('tablet');
-      }
+      } 
     });
   }, [display]);
 
