@@ -9,7 +9,7 @@ export default function CardsList({
   cardStyle,
   displayId,
   buttonStyle,
-  buttonText,
+  buttonText
 }) {
   // RENDER
   return (

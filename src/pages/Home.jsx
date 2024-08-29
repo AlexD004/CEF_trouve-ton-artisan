@@ -19,7 +19,7 @@ function Home({topWorkers}) {
             gutterBetweenCards= "g-2" 
             col= "col-sm-12 col-md-6 col-lg-3" 
             cardStyle= "border border-secondary border-2 rounded-4 p-2"
-            displayId= {true}
+            displayId= {true} 
           />
         </section>
         <section id="bestsWorkers" className="pb-4">
