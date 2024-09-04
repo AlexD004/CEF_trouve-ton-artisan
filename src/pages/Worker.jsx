@@ -94,7 +94,7 @@ function Worker({topWorkers}) {
 
         <section id="contactForm">
           <TitleH2 colorDivider="success" content={"Contacter " + worker.name} />
-          <ContactForm />
+          <ContactForm workerName={worker.name} workerEmail={worker.email}/>
         </section>
           
       </div>

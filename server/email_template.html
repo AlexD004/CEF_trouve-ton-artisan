@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+       .container{
+            max-width: 650px;
+            margin: 0 auto;
+            font-family: sans-serif;
+        }
+        a{
+            text-decoration: none;
+            color:#0074c7;
+        }
+        a:hover{
+            text-decoration: none;
+            color:#00497c;
+        }
+        .btn{
+            background-color: #0074c7;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 50px;
+        }
+        .btn:hover{
+            background-color: #00497c;
+        }
+        .blue{
+            color:#0074c7;
+        }
+        header {
+            box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.2);
+        }
+        header .container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        main{
+            padding: 20px 0;
+        }
+        .infosClient{
+            border-top:1px dashed #00497c;
+            border-bottom:1px dashed #00497c;
+            margin: 20px 0;
+        }
+        footer{
+            background: #0074c7;
+            padding: 10px 0;
+        }
+        footer .container{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="https://trouvetonartisan.fr" target="_blank">
+                <img src="../public/images/logo.png" width="200" height="53" alt="Logo Trouve ton artisan" />
+            </a>
+            <h1 class="blue">Demande de devis</h1>
+        </div>
+    </header>
+    <main class="content">
+        <div class="container">
+            <p><strong>Bonjour {{workerName}}</strong>,</p>
+            <p>Vous venez de recevoir une nouvelle demande de devis sur le site <a href="https://www.trouvetonartisan.fr">Trouve ton artisan</a>. Retrouvez toutes les informations ci-dessous.</p>
+            <p class="blue"><strong>N'oubliez pas de revenir vers votre futur client dans les 48h (jours ouvrés) suivant la réception de ce mail.</strong></p>
+            <p class="signature">Très bonne continuation sur notre site.</p>
+            <div class="infosClient">
+                <p><strong>Nom :</strong> {{name}}</p>
+                <p><strong>E-mail :</strong> {{email}}</p>
+                <p><strong>Objet :</strong> {{subject}}</p>
+                <p><strong>Message :</strong></p>
+                <p>{{message}}</p>
+            </div>
+            <a href="mailto:{{email}}?subject=Suite à votre demande de devis.">
+                <div class="btn">Répondre à {{name}}</div>
+            </a>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <a href="https://trouvetonartisan.fr" target="_blank">
+                <img src="../public/images/logo-blanc.png" width="200" height="53" alt="Logo Trouve ton artisan" />
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
