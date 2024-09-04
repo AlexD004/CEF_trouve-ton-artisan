@@ -44,7 +44,7 @@ After that, you can install the dependencies either using NPM.
 # Install dependencies
 $ npm install
 
-# Run the project in Dev Mode to see the result
+# Run the project to see the result
 $ npm start
 ```
 
@@ -257,3 +257,36 @@ import TitleH2 from '../components/TitleH2'
 
 You can add any objects needed.
 Each objet will be displayed as a card.
+
+### 📋 How to use maildev to check email before production
+
+All modules are already in the project.
+
+1. If you haven't did it : run the app
+You can see the app on your browser : localhost:3000
+```
+# Move into repository
+$ git cd CEF_trouve-ton-artisan
+
+# Install dependencies
+$ npm install
+
+# Run the project to see the result
+$ npm start
+```
+
+2. Run mailDev on a new terminal
+You can see the mail box on your browser : localhost:1080
+```
+$ maildev
+```
+
+3. Run the server on a new terminal
+The server run on port 8000 and send mail on port 1025
+```
+# Install dependencies
+$ npm install
+
+# Run the project on dev mode to send mails to maildev
+$ npm run dev
+```
