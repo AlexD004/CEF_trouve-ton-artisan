@@ -36,7 +36,7 @@ function CardsWorker(props) {
           {dataCards.map((dataCard) => {
 
             // Create a clean url with worker name
-            const urlName = dataCard.name.normalize("NFD").replace(/[\u0300-\u036f]|[^\w ]/g, "").replace(/ /g,"-").toLowerCase();
+            const urlName = dataCard.name.normalize("NFD").replace(/[\u0300-\u036f]|[^\w ]/g, "").replace(/ /g,"-").replace("--","-").toLowerCase();
             // Define an avatar by default
             let imageURL = dataCard.imageURL;
             let alt = dataCard.alt;
