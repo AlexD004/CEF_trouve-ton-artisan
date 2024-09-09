@@ -28,7 +28,7 @@ function ContactForm({ workerName, workerEmail }) {
     );
     // To know if all content are 'ok' or if there is an error
     const [invalid, setInvalid] = useState(false);
-
+    
 /* FUNCTIONS CALLED IN PROCESS */
     // Update values of inputs in contact form
     const handleChange = (e) => {
@@ -49,7 +49,7 @@ function ContactForm({ workerName, workerEmail }) {
         });
     } 
     // Clean value submited in searchbar
-    const escapeHtml = (unsafe) => {
+    const escapeHtml = (unsafe) => { 
         return unsafe
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
@@ -73,26 +73,17 @@ function ContactForm({ workerName, workerEmail }) {
         body: JSON.stringify(mailInfos),
       })
         .then((res) => res.json())
-        .then((data) => setIsSent(data.sent))
+        .then(() => setIsSent(true))
         .then(() => mailSent())
         .catch(function(error) {                        // catch
           console.log('Request failed', error);
         });
     };
+    
+  
     // Fade out success message
-    let fadeOut = () => {
-      let fadeTarget = document.getElementById("successMessage");
-      let fadeEffect = setInterval(function () {
-        if (!fadeTarget.style.opacity) {
-          fadeTarget.style.opacity = 1;
-        }
-        if (fadeTarget.style.opacity > 0) {
-          fadeTarget.style.opacity -= 0.01;
-        } else {
-          clearInterval(fadeEffect);
-          setIsSent(false);
-        }
-      }, 10);
+    let boxOut = () => {
+      setIsSent(false);
     }
     // Call when all is ok after submit
     const mailSent = () => {
@@ -110,17 +101,15 @@ function ContactForm({ workerName, workerEmail }) {
         subject: false,
         message: false
       });
-      setTimeout( fadeOut , 5000 ); // Wait 6s and fade out the success message
+      setTimeout( boxOut , 5000 ); // Wait 5s and fade out the success message
     }
 /* FUNCTION SUBMIT */
     const handleSubmit = (event) => {
         event.preventDefault();
-
         try {
             if( mailInfos.name.length < 1 || mailInfos.email.length < 1 || mailInfos.subject.length < 1 || mailInfos.message.length < 1 ){
              throw new Error("All fields are required!");
             }
-
             setInvalid(false); // If the form was invalid, now it is good !
             setmailInfos({
               name: escapeHtml(mailInfos.name),
@@ -142,7 +131,7 @@ function ContactForm({ workerName, workerEmail }) {
           <Form onSubmit={handleSubmit}>
             <Row>
               <Col sm="12" md="6" className="mt-4">
-                <Form.Group controlId="formName">
+                <Form.Group controlId="inputName">
                   <Form.Label>
                     Nom <span className="text-danger">*</span>
                   </Form.Label>
@@ -157,7 +146,7 @@ function ContactForm({ workerName, workerEmail }) {
                 </Form.Group>
               </Col>
               <Col sm="12" md="6" className="mt-4">
-                <Form.Group controlId="formEmail">
+                <Form.Group controlId="inputEmail">
                   <Form.Label>
                     Email <span className="text-danger">*</span>
                   </Form.Label>
@@ -172,7 +161,7 @@ function ContactForm({ workerName, workerEmail }) {
                 </Form.Group>
               </Col>
             </Row>
-            <Form.Group controlId="formSubject" className="mt-4">
+            <Form.Group controlId="inputSubject" className="mt-4">
                   <Form.Label>
                     Objet <span className="text-danger">*</span>
                   </Form.Label>
@@ -185,7 +174,7 @@ function ContactForm({ workerName, workerEmail }) {
                     onChange={handleChange}
                   />
                 </Form.Group>
-            <Form.Group controlId="formMessage" className="mt-4">
+            <Form.Group controlId="inputMessage" className="mt-4">
               <Form.Label>
                 Message <span className="text-danger">*</span>
               </Form.Label>
@@ -199,7 +188,7 @@ function ContactForm({ workerName, workerEmail }) {
               />
             </Form.Group>
             { invalid && (<div className='py-2 mt-3 border border-danger rounded-2 text-center text-danger'>Tous les champs sont obligatoires. Veuillez compléter les informations manquantes.</div>) }
-            { isSent && (<div id="successMessage" className='py-2 mt-3 border border-success rounded-2 text-center text-success'>Votre message est envoyé. Nous vous répondrons sous 48h (jours ouvrés).</div>) }
+            { isSent && (<div className='successMessage py-2 mt-3 border border-success rounded-2 text-center text-success'>Votre message est envoyé. Nous vous répondrons sous 48h (jours ouvrés).</div>) }
             <div className="d-flex justify-content-center justify-content-sm-end">
               <Button variant="primary" type="submit" className="mt-4 rounded-5 px-5">
                 Demander un devis

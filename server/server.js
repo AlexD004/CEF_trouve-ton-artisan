@@ -11,6 +11,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.json());
 
+//app.use(express.static(path.join(__dirname, 'build')));
+
+
 const transporter = nodemailer.createTransport({
     host: "0.0.0.0",
     port: 1025,
@@ -18,15 +21,12 @@ const transporter = nodemailer.createTransport({
     tls: {
         // do not fail on invalid certs
         rejectUnauthorized: false,
-      },
+      }, 
       auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
       },
 });
-
-
-
 
 app.post('/maildev', (req, res) => {
 

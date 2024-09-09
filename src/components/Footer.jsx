@@ -24,7 +24,7 @@ function Footer(props) {
                     width="250"
                     height="66"
                     className="d-inline-block align-top"
-                    alt="Logo Trouve ton artisan"
+                    alt="Logo Trouve ton artisan en blanc"
                   />
                 </a>
               </Col>

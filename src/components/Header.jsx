@@ -127,13 +127,17 @@ function Header(props) {
                   <Row className='g-2 w-100 d-flex align-items-end'>
                     <Col xs="auto" className='col-8'>
                       {isError && (<span className='text-danger'>Veuillez saisir votre recherche</span>)}
-                      <Form.Control type="text" name="search" placeholder="Ville, Nom, Spécialité..."
-                        className={"my-0 rounded-0 border-primary border-top-0 border-start-0 " + (isError && "invalid")}
-                      />
+                      <Form.Group  controlId="searchInput">
+                        <Form.Label  hidden>Recherche</Form.Label>
+                        <Form.Control id="searchInput" type="text" name="search" placeholder="Ville, Nom, Spécialité..."
+                          className={"my-0 rounded-0 border-primary border-top-0 border-start-0 " + (isError && "invalid")}
+                        />
+                      </Form.Group>
                     </Col>
                     <Col xs="auto" className='col-4'>
                       <Button
                         type="submit"
+                        value="Rechercher"
                         className="my-0 bg-primary w-100"
                       >
                         Rechercher
